@@ -79,7 +79,7 @@ article {
         width: 45%;
     }
 }
-@media (max-width: 767px)
+@media (max-width: 479px)
 {
     .menu {
         font-size: 1em;

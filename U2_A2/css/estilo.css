@@ -1,12 +1,11 @@
 body {
   background-color: lightcyan;
-  color: white;
+  color: darkmagenta;
   font-family: Ubuntu, 'open sans', Tahoma, Arial;
 }
 
 header {
   width: 95%;
-  height: 80px;
   margin: 0px auto 0px;
   color: black;
   text-align: center;
@@ -101,4 +100,11 @@ article {
 
 h3 {
   color: darkgreen
+}
+
+.error {
+  background-color: lightpink;
+  color: red;
+  width: 60%;
+  text-align: center;
 }

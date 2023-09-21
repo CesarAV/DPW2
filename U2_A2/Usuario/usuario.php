@@ -1,79 +1,84 @@
-<!DOCTYPE html>
-<html lang="es-MX">
-    <head>
-        <title>Usuario</title>
-    <?php
-            // elementos comunes del cuerpo 
-            include('../head-interno.html');
-            include('../database.php');
+<?php
 
-            $usuarios = new Database();
-            $listado=$usuarios->leerUsuarios();
-        ?>
-        <script>
-            function eliminar(id, nombre){
-                if(confirm(`¿Está seguro de eliminar el usuario ${nombre}?`)) {
-                    window.location = "eliminar.php?id=" + id;
-                }
-            }
-        </script>
-    </head>
-    <body>        
-        <?php
-            // elementos comunes del cuerpo 
-            include('../header.html');
-            include('../menu.php');
-        ?>
-        <section>
-            <div class="container">
-                <div class="table-wrapper">
-                    <div class="table-title">
-                    <div class="row">
-                        <div class="col-sm-8"><h2>Listado de <b>Usuarios</b></h2></div>
-                        <div class="col-sm-4">
-                        <a href="crear.php" class="btn btn-info add-new"><i class="fas fa-user-plus"></i> Agregar usuario</a>
-                        </div>
-                    </div>
-                    </div>
-                    <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Identificador</th>
-                            <th>Nombre</th>
-                        </tr>
-                    </thead>
+include('../database.php');
 
-                    <tbody>
-                        <?php
-                            while ($row=mysqli_fetch_object($listado)){
-                                $id=$row->IDUsuario;
-                                $nombre=$row->Nombre;
-                            ?>
-                        <tr>
-                            <td><?php echo $id;?></td>
-                            <td><?php echo $nombre;?></td>
-                        <td>
-                            <a href="actualizar.php?id=<?php echo $id;?>"
-                                class="edit" title="Editar" data-toggle="tooltip">
-                                <i class="material-icons">&#xE254;</i>
-                            </a>
-                            <a href="javascript:eliminar(<?php echo $id;?>, '<?php echo $nombre;?>');"
-                                class="delete" title="Eliminar" data-toggle="tooltip">
-                                <i class="material-icons">&#xE872;</i>
-                            </a>
-                        </td>
-                        </tr>
-                        <?php
-                        }
-                        ?> 
-                    </tbody>
-                    </table>
-                </div>
-            </div>
-       </section>
-        <?php
-            // elementos comunes del cuerpo 
-            include('../footer.html');
-        ?>
-    </body>
-</html>
+class Usuario{
+    private $db;
+    private $con;
+
+    function __construct() {
+      $this->db = new Database();
+      $this->con = $this->db->getConn();
+    }
+
+    function __destruct() {
+        // Liberar la conexion
+        $this->db = null;
+    }
+
+    public function leerUsuarios() {
+        $sql = $this->con->prepare('SELECT * FROM usuario');
+        if ($sql->execute()) {
+            $resultado = $sql->fetchAll();
+            $sql = null;
+
+            return $resultado;
+        }
+
+        echo "error al leer usuarios";
+    }
+
+    // Inserta un nuevo registro de usuario en la BD
+    public function crearUsuario($id, 
+        $nombre, 
+        $apellidoPaterno,
+        $apellidoMaterno,
+        $departamento,
+        $tipoUsuario,
+        $password) {
+
+        // Prepare statement
+        $sql = "INSERT INTO usuario (IDUsuario, Nombre, ApellidoPaterno, ApellidoMaterno, Departamento, TipoUsuario, Password)
+                  VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
+        $stmt = $this->con->Prepare($sql);
+
+        // Bind parameters
+        $stmt->bindParam(1,$id);
+        $stmt->bindParam(2, $nombre);
+        $stmt->bindParam(3, $apellidoPaterno);
+        $stmt->bindParam(4, $apellidoMaterno);
+        $stmt->bindParam(5, $departamento);
+        $stmt->bindParam(6, $tipoUsuario);
+        $stmt->bindParam(7, $password);
+
+        if($stmt->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+    public function actualizarUsuario($id, $nombre, $contra, $tel, $email, $notas){
+        $sql = "UPDATE usuario Set Nombre='$nombre', Contrasenia='$contra', Telefono='$tel', CorreoElectronico='$email', Notas='$notas' WHERE id=$id";
+        $res = mysqli_query($this->con, $sql);
+        if($res){
+            return true;
+        }
+        return false;
+    }
+    public function registroUsuario($id){
+        $sql = "SELECT * FROM usuario where id='$id'";
+        $res = mysqli_query($this->con, $sql);
+        $return = mysqli_fetch_object($res);
+        return $return ;
+    }
+    public function eliminarUsuario($id){
+        $sql = "DELETE FROM usuario WHERE id=$id";
+        $res = mysqli_query($this->con, $sql);
+        if($res){
+            return true;
+        }
+        return false;
+    }
+}
+?>

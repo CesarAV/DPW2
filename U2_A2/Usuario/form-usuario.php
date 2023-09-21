@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-md-12">
-        <label onclick="mostrarAyuda('Nombre');">Nombre completo:</label>
+        <label onclick="mostrarAyuda('Nombre');">Nombre:</label>
         <input type="text" name="Nombre" id="nombre"
             value="<?php echo $nombre ?>"
             class='form-control' maxlength="128" required>
@@ -46,10 +46,17 @@
     <div class="col-md-12">
         <label onclick="mostrarAyuda('Password');">Contraseña:</label>
         <input type="password" name="Password" id="password"
-            value="<?php echo $password ?>"
-            class='form-control' maxlength="100" required 
-            placeholder="contraseña">
+        value="<?php echo $password ?>"
+        class='form-control' maxlength="100" required>
     </div>
+    
+    <div class="col-md-12">
+        <label>Confirmar contraseña:</label>
+        <input type="password" name="ConfirmPassword" id="confirmpassword"
+        value="<?php echo $password ?>"
+        class='form-control' maxlength="100" required>
+    </div>
+    <div id="validarPwd" class="error"></div>
 
     <div class="col-md-12 pull-right">
         <button type="submit" class="btn btn-success">

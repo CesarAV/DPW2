@@ -6,19 +6,20 @@
             // elementos comunes del cuerpo 
             include('../head-interno.html');
         ?>
-        <script src="usuario.js"></script>
+        <script src="/scripts/validar.js"></script>
+        <script src="/scripts/usuario.js"></script>
     </head>
     <body>        
         <?php
             // elementos comunes del cuerpo 
             include('../header.html');
             include('../menu.php');
-            include("../database.php");
+            include("usuario.php");
 
-            $usuario = new Database();
+            $usuario = new Usuario();
             if(isset($_POST) && !empty($_POST)){
                 $idusuario = $_POST['IDUsuario'];
-                $nombre = $usuario->sanitize($_POST['Nombre']);
+                $nombre = $_POST['Nombre'];
                 $apellidoPaterno = $_POST['ApellidoPaterno'];
                 $apellidoMaterno = $_POST['ApellidoMaterno'];
                 $departamento = $_POST['Departamento'];
@@ -34,18 +35,21 @@
                     $password
                 );
 
-                    if($res){
-                        $message= "Datos insertados con éxito";
-                        $class="alert alert-success";
-                    }else{
-                        $message="No se pudieron insertar los datos";
-                        $class="alert alert-danger";
-                    }
+                if($res){
+                    $message= "Datos insertados con éxito";
+                    $class="alert alert-success";
+                }else{
+                    $message="No se pudieron insertar los datos";
+                    $class="alert alert-danger";
+                }
             ?>
             <div class="<?php echo $class?>">
                 <?php echo $message;?>
             </div>
-            <?php
+        <?php
+            if($res){
+
+            }
                 }
             ?>
         <section>

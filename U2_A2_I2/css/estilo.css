@@ -1,0 +1,124 @@
+body {
+  background-color: lightcyan;
+  color: darkmagenta;
+  font-family: Ubuntu, 'open sans', Tahoma, Arial;
+}
+
+header {
+  width: 95%;
+  margin: 0px auto 0px;
+  color: black;
+  text-align: center;
+  font-size: 2em;
+}
+
+nav {
+  width: 95%;
+  margin: 0px auto 0px;
+  color: black;
+  text-align: center;
+  font-size: 1em;
+}
+
+.menu>div{
+  padding-left: 2em;
+}
+
+.menu {
+  font-size: 1.5em;
+  display: inline-flex;
+}  
+
+.menu>div:hover{
+  background-color: lightseagreen;
+}  
+
+footer {
+  width: 95%;
+  margin: 0px auto 0px;
+  color: black;
+  background-color: lightgray;
+  text-align: center;
+  font-size: 1em;
+}  
+
+section {
+  width: 95%;
+  color: black;
+  text-align: center;
+  font-size: 1em;
+  /*border: 2px solid white;*/
+  margin-top: 15px;
+}  
+
+article {
+  /* 
+  border: 1px solid white;
+  background-color: aquamarine;
+  margin: 0 auto;
+  */
+  vertical-align: middle;
+  display: inline-flex;
+}  
+
+/* el orden del media query es importante para que se aplique adecuadamente */
+@media (min-width: 993px)
+{
+  article {
+    /* 3 cols */ 
+    /* background-color: greenyellow; */
+    width: 30%;
+  }    
+}  
+@media (max-width: 992px)
+{
+  article {
+    /* 2 cols */ 
+    /* background-color: yellow; */
+    width: 45%;
+  }
+}
+@media (max-width: 479px)
+{
+  .menu {
+    font-size: 1em;
+    display: block;
+  }  
+
+  article {
+    /* 1 col */ 
+    /* background-color: red; */
+    width: 90%;
+  }  
+}
+
+#contenido {
+  width: 90%;
+  margin: 0px auto 0px;
+  color: black;
+}
+
+h3 {
+  color: darkgreen
+}
+
+.error {
+  background-color: lightpink;
+  color: red;
+  width: 60%;
+  text-align: center;
+}
+
+table.table-bordered > thead > tr > th,
+table.table-bordered > tbody > tr > td,
+.table-bordered {
+  border-top: 1px olive solid;
+  border-bottom: 1px olive solid;
+  padding:5px;
+  margin: 0;
+}
+
+#mensajeDeUsuario,
+#mensajeDeUsuario2 {
+  text-align: center;
+}

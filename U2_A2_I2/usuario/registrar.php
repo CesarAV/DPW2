@@ -1,5 +1,6 @@
 <?php
 include("../comun/session-handler.php");
+$redirectHome = false;
 ?>
 <!DOCTYPE html>
 <html lang="es-MX">
@@ -71,7 +72,7 @@ include("../comun/session-handler.php");
     </section>
     <?php
     // elementos comunes del cuerpo 
-    include('../footer.html');
+    include('../footer.php');
     ?>
 </body>
 

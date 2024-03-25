@@ -1,5 +1,7 @@
 <?php
 include("comun/session-handler.php");
+$redirectHome = false;
+include_once('usuario/usuario-firmado.php');
 ?>
 <!DOCTYPE html>
 <html lang="es-MX">
@@ -15,7 +17,9 @@ include("comun/session-handler.php");
   <?php
   // elementos comunes del cuerpo 
   $todosLosMenus = true;
-  include('comun/menu-y-header.php');
+  include('menu.php');
+  include('comun/bienvenido.php');
+  include('header.php');
   ?>
   <div id="contenido">
     <section>
@@ -28,7 +32,7 @@ include("comun/session-handler.php");
   </div>
   <?php
   // elementos comunes del cuerpo 
-  include('footer.html');
+  include('footer.php');
 
   $version = phpversion();
   print 'PHP version: ' . $version;

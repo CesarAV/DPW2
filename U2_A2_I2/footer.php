@@ -1,5 +1,5 @@
-<footer style="font-size: smaller; text-align: center;">
-    <hr/>
+<footer>
+    <hr />
     <article>
         &copy; 2024. Instituto México
     </article>
@@ -9,10 +9,10 @@
     <!--article>
         <img title="WhatsApp" src="imagenes/WhatsApp.svg.webp" width="45px">
     </article -->
-    <hr/>
-    <div>
-    <a href="https://commons.wikimedia.org/wiki/File:Residential_College_South.jpg" target="_blank">
-        Im&aacute;genes obtenidas de Wikimedia. Creative Commons CC0 License
-    </a>
-    </div>
+
+    <?php
+    if (isset($footerExtra)) {
+        include($footerExtra);
+    }
+    ?>
 </footer>

@@ -1,26 +1,9 @@
+<?php include_once($_SERVER["DOCUMENT_ROOT"]."/usuario/usuario-firmado.php"); ?>
 <nav class="menu-principal">
   <div class="menu">
     <div><a title="Inicio" href="/index.php">Inicio</a></div>
-    <?php
-    include_once($_SERVER["DOCUMENT_ROOT"].'/usuario/usuario.php'); 
-
-    $message = ""; // "todo: mensaje";
-    $usuario = new Usuario();
-    $usuarioFirmado = $usuario->getUsuarioFirmado();
-    // print_r(isset($usuarioFirmado));
-    if (isset($usuarioFirmado)) {
-      $nombres = [
-        $usuarioFirmado->nombre,
-        $usuarioFirmado->apellidoPaterno,
-        $usuarioFirmado->apellidoMaterno
-      ];
-      $message = "!Bienvenido " . implode(" ", $nombres) . "!";
-      $message2 = "¡Has ingresado como '" . $usuarioFirmado->descripcionTipo() . "'!";
-    }
-    ?>
-    
 <?php
-    if (!$usuarioFirmado) {
+    if (!isset($usuarioFirmado)) {
       ?>
       <div><a title="Registro" href="/usuario/registrar.php">Registrarse</a></div>
       <div><a title="Inicio de sesion" href="/usuario/iniciar-sesion.php">Iniciar sesi&oacute;n</a></div>

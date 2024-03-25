@@ -3,6 +3,9 @@ body {
   color: darkmagenta;
   font-family: Ubuntu, 'open sans', Tahoma, Arial;
 }
+body.pago {
+  background-image: url('/imagenes/cash_register.jpg');
+}
 
 header {
   width: 95%;
@@ -39,8 +42,9 @@ footer {
   color: black;
   background-color: lightgray;
   text-align: center;
-  font-size: 1em;
-}  
+  font-size: smaller;
+  position:fixed; 
+}
 
 section {
   width: 95%;
@@ -112,13 +116,37 @@ h3 {
 table.table-bordered > thead > tr > th,
 table.table-bordered > tbody > tr > td,
 .table-bordered {
-  border-top: 1px olive solid;
-  border-bottom: 1px olive solid;
+  border: 1px olive solid;
+  border-collapse: collapse;
   padding:5px;
   margin: 0;
+}
+
+table > thead > tr {
+  background-color: lightgray;
 }
 
 #mensajeDeUsuario,
 #mensajeDeUsuario2 {
   text-align: center;
+}
+
+.centrado {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+div#marca-de-agua-pago {
+  /*
+  Gracias a Random y Aaron
+   https://stackoverflow.com/questions/9935161/how-to-watermark-overlay-image-on-an-html-page
+  */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background: url('/imagenes/cash_register.jpg') center center no-repeat;
+  pointer-events: none;
+  opacity: 0.15;
 }

@@ -1,14 +1,14 @@
 <?php
 include("../comun/session-handler.php");
+// ejemplo de como redireccionar si id es obligatorio en 'get'
+//if (isset($_GET['id'])) {
+//    $id = $_GET['id'];
+//} else {
+//    header("location:/index.php");
+//    exit; // impotant!: https://stackoverflow.com/questions/8028957/how-to-fix-headers-already-sent-error-in-php
+//}
 ?>
 <!DOCTYPE html>
-<?php
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-} else {
-    header("location:usuario.php");
-}
-?>
 <html lang="es-MX">
 
 <head>
@@ -27,6 +27,9 @@ if (isset($_GET['id'])) {
     include('../comun/menu-y-header.php');
 
     $usuario = new Usuario();
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
     if (isset($_POST) && !empty($_POST)) {
         // Guardar datos de post
         $usuario->asignarValores($_POST);
@@ -79,7 +82,7 @@ if (isset($_GET['id'])) {
     </section>
     <?php
     // elementos comunes del cuerpo 
-    include('../footer.html');
+    include('../footer.php');
     ?>
 </body>
 

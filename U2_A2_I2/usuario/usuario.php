@@ -16,7 +16,7 @@ class Usuario
     public $password;
 
     public $lastError;
-
+    
     function __construct()
     {
         $this->db = new Database();
@@ -272,5 +272,19 @@ class Usuario
             case "PF":
                 return array($menuConsultarPago);
         }
+    }
+
+    public function esPDC() {
+        return $this->tipoUsuario == 'PDC';
+    } 
+
+    public function nombreCompleto() {
+        $nombres = [
+            $this->nombre,
+            $this->apellidoPaterno,
+            $this->apellidoMaterno
+          ];
+          
+        return implode(" ", $nombres);
     }
 }

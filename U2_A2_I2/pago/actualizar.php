@@ -1,7 +1,10 @@
 <?php
 include("../comun/session-handler.php");
 include_once("../usuario/usuario-firmado.php");
-?>
+if(!isset($usuarioFirmado) || !$usuarioFirmado->puedeEditarPago()) {
+    header('location: /index.php');
+    exit;
+}?>
 <!DOCTYPE html>
 <html lang="es-MX">
 

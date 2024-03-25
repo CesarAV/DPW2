@@ -1,5 +1,5 @@
-<!-- manejo de usuario firmado -->
 <?php
+// manejo de usuario firmado
 $usuarioFirmado = Usuario::getUsuarioFirmado();
 if ($usuarioFirmado) {
     $esUsuarioPDC = $usuarioFirmado->esPDC();

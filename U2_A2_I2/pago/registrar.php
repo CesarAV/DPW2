@@ -1,6 +1,10 @@
 <?php
 include("../comun/session-handler.php");
 include_once("../usuario/usuario-firmado.php");
+if(!isset($usuarioFirmado) || !$usuarioFirmado->puedeRegistrarPago()) {
+    header('location: /index.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

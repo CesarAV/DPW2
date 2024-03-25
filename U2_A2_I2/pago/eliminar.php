@@ -1,6 +1,10 @@
 <?php
 include("../comun/session-handler.php");
 include("../pago/pago.php");
+if(!isset($usuarioFirmado) || !$usuarioFirmado->puedeEliminarPago()) {
+    header('location: /index.php');
+    exit;
+}
 ?>
 <?php
 $idUsuario = '';

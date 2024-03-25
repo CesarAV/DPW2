@@ -287,4 +287,16 @@ class Usuario
           
         return implode(" ", $nombres);
     }
+
+    public function puedeRegistrarPago() {
+        return $this->esPDC();
+    }
+
+    public function puedeEditarPago() {
+        return $this->esPDC();
+    }
+
+    public function puedeEliminarPago() {
+        return $this->esPDC();
+    }
 }

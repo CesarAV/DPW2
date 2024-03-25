@@ -30,22 +30,28 @@ include_once("../usuario/usuario-firmado.php");
     // limpiar mensajes
     $message = $message2 = '';
 
-    // Guardar registro
-    $pago = new Pago();
-    if (isset($_POST) && !empty($_POST)) {
-        $pago->asignarValores($_POST);
+    if (!$esUsuarioPDC) {
+        $message = "Sólo pueden registrar pago los usuarios del depto. de cobranza.";
+    }
 
-        $res = $pago->crearPago();
+    if ($esUsuarioPDC) {
+        // Guardar registro
+        $pago = new Pago();
+        if (isset($_POST) && !empty($_POST)) {
+            $pago->asignarValores($_POST);
 
-        if ($res) {
-            $message = "Datos insertados con éxito";
-            $class = "alert alert-success";
-        } else {
-            $class = "alert alert-danger";
-            $message = "No se pudieron insertar los datos.";
-            if (!empty($pago->lastError)) {
-                $class2 = "alert alert-danger";
-                $message2 = $pago->lastError;
+            $res = $pago->crearPago();
+
+            if ($res) {
+                $message = "Datos insertados con éxito";
+                $class = "alert alert-success";
+            } else {
+                $class = "alert alert-danger";
+                $message = "No se pudieron insertar los datos.";
+                if (!empty($pago->lastError)) {
+                    $class2 = "alert alert-danger";
+                    $message2 = $pago->lastError;
+                }
             }
         }
     }
@@ -55,42 +61,49 @@ include_once("../usuario/usuario-firmado.php");
         Registrar pago
     </header>
 
-    <?php include("../mensaje.php"); ?>
+    <?php
+    include("../mensaje.php");
 
-    <section>
-        <div class="container">
-            <div class="row">
-                <?php
-                if (!isset($pago) || empty($pago->folio)) {
-                    $pago = new Pago();
-                }
-                // Forma común de edicion
-                include('form-pago.php');
-                ?>
-            </div>
-            <span class="centrado">
-                <?php
-                if (!empty($pago->folio)) {
-
-                    $listado = $pago->leerPagos($pago->idUsuario);
-                    if (count($listado) > 0) {
-                ?>
-
-                        <div><b>Pagos realizados</b></div>
-                        <div>
-                            <?php 
-                            include_once('../usuario/usuario.php');
-                            $soloVerPagos = true;
-                            include("tabla-pagos.php");
-                             ?>
-                        </div>
-                <?php
+    if ($esUsuarioPDC) {
+    ?>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <?php
+                    if (!isset($pago) || empty($pago->folio)) {
+                        $pago = new Pago();
                     }
-                }
-                ?>
-            </span>
-        </div>
-    </section>
+                    // Forma común de edicion
+                    include('form-pago.php');
+                    ?>
+                </div>
+                <span class="centrado">
+                    <?php
+                    if (!empty($pago->folio)) {
+
+                        $listado = $pago->leerPagos($pago->idUsuario);
+                        if (count($listado) > 0) {
+                    ?>
+
+                            <div><b>Pagos realizados</b></div>
+                            <div>
+                                <?php
+                                include_once('../usuario/usuario.php');
+                                $soloVerPagos = true;
+                                include("tabla-pagos.php");
+                                ?>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
+                </span>
+            </div>
+        </section>
+
+    <?php
+    }
+    ?>
     <?php
     // elementos comunes del cuerpo 
     $footerExtra = 'footer-pago.php';

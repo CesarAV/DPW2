@@ -33,25 +33,25 @@ if(!isset($usuarioFirmado) || !$usuarioFirmado->puedeEditarPago()) {
     if (isset($_GET['folio'])) {
         $folio = $_GET['folio'];
     }
-    if (isset($_POST) && !empty($_POST)) {
+        if (isset($_POST) && !empty($_POST)) {
 
-        // Guardar datos de post
-        $pago->asignarValores($_POST);
+            // Guardar datos de post
+            $pago->asignarValores($_POST);
 
-        $res = $pago->actualizarPago();
+            $res = $pago->actualizarPago();
 
-        if ($res) {
-            $class = "alert alert-success";
-            $message = "Datos guardados con éxito";
-        } else {
-            $class = "alert alert-danger";
-            $message = "No se guardaron los datos.";
-            if (!empty($pago->lastError)) {
-                $message .= " " . $pago->lastError;
+            if ($res) {
+                $class = "alert alert-success";
+                $message = "Datos guardados con éxito";
+            } else {
+                $class = "alert alert-danger";
+                $message = "No se guardaron los datos.";
+                if (!empty($pago->lastError)) {
+                    $message .= " " . $pago->lastError;
+                }
             }
+            $message2 = ""; // Sin mensaje 2
         }
-        $message2 = ""; // Sin mensaje 2
-    }
 
     $pago = $pago->leerPagoDeBD($folio);
     ?>

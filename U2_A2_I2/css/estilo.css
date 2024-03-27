@@ -148,3 +148,20 @@ div#marca-de-agua-pago {
   pointer-events: none;
   opacity: 0.15;
 }
+
+.derecho-autor {
+  font-size: small;
+  font-style: italic;
+}
+
+.frase {
+  font-style: italic;
+  border: solid darkorange 1px;
+  border-radius: 7px;
+  padding: 5px;
+  margin: 5px;
+}
+.autor {
+  text-align-last: end;
+  font-size: small;
+}

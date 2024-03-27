@@ -24,9 +24,6 @@ include_once('usuario/usuario-firmado.php');
     include('comun/bienvenido.php');
     include('header.php');
     ?>
-    <div class="centrado">
-      <?php include('comun/carousel.php'); ?>
-    </div>
 
     <section>
       <div class="container-fluid text-center">
@@ -39,14 +36,25 @@ include_once('usuario/usuario-firmado.php');
         </div>
       </div>
     </section>
+
+    <div class="centrado row">
+      <div class="col-md-9 col-sm-12">
+        <?php include('comun/carousel.php'); ?>
+      </div>
+    </div>
+    <hr>
+
+    <?php include('comun/grid-carreras.php'); ?>
+
+    <?php include('comun/grid-comentarios.php'); ?>
+
   </main>
+
   <?php
   // elementos comunes del cuerpo 
   include('footer.php');
-
-  $version = phpversion();
-  print 'PHP version: ' . $version;
   ?>
+
   </div>
 </body>
 

@@ -9,7 +9,7 @@ $redirectHome = false;
     <title>Registrar usuario</title>
     <?php
     // elementos comunes del cuerpo 
-    include('../head-interno.html');
+    include('../comun/head-interno.html');
     ?>
     <script src="/scripts/validar.js"></script>
     <script src="/scripts/usuario.js"></script>

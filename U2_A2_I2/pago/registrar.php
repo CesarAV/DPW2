@@ -16,7 +16,7 @@ if(!isset($usuarioFirmado) || !$usuarioFirmado->puedeRegistrarPago()) {
 
     <?php
     // elementos comunes del cuerpo 
-    include('../head-interno.html');
+    include('../comun/head-interno.html');
 
     require_once('pago.php');
     ?>

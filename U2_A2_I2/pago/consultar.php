@@ -11,10 +11,11 @@ include('pago.php');
     Cesar A. V. Rodriguez. UnADM. ES1521204253 -->
 
     <script src="/scripts/pago.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
 
     <?php
     // elementos comunes del cuerpo 
-    include('../head-interno.html');
+    include('../comun/head-interno.html');
 
     if(isset($_POST) && isset($_POST["usuarioSeleccionado"])) {
         // asignar el usuario seleccionado y realizar el proceso regular.

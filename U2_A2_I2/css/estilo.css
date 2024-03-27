@@ -2,6 +2,7 @@ body {
   background-color: lightcyan;
   color: darkmagenta;
   font-family: Ubuntu, 'open sans', Tahoma, Arial;
+  padding-top: 4.5rem;
 }
 body.pago {
   background-image: url('/imagenes/cash_register.jpg');
@@ -37,13 +38,10 @@ nav {
 }  
 
 footer {
-  width: 95%;
-  margin: 0px auto 0px;
   color: black;
   background-color: lightgray;
   text-align: center;
   font-size: smaller;
-  position:fixed; 
 }
 
 section {

@@ -5,7 +5,7 @@
     <title>Usuario</title>
     <?php
     // elementos comunes del cuerpo 
-    include('../head-interno.html');
+    include('../comun/head-interno.html');
     include('usuario.php');
 
     $usuario = new Usuario();

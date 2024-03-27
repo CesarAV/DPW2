@@ -9,7 +9,7 @@ include_once('usuario/usuario-firmado.php');
 <head>
   <?php
   // elementos comunes del cuerpo 
-  include('head-interno.html');
+  include('comun/head-interno.html');
   ?>
 </head>
 
@@ -18,18 +18,28 @@ include_once('usuario/usuario-firmado.php');
   // elementos comunes del cuerpo 
   $todosLosMenus = true;
   include('menu.php');
-  include('comun/bienvenido.php');
-  include('header.php');
   ?>
-  <div id="contenido">
+  <main role="main" class="container" id="contenido">
+    <?php
+    include('comun/bienvenido.php');
+    include('header.php');
+    ?>
+    <div class="centrado">
+      <?php include('comun/carousel.php'); ?>
+    </div>
+
     <section>
-      <article>
-        Un colegio para la educación integral de los alumnos,
-        con instalaciones amplias y seguras,
-        ideales para motivar a la concentración y crecimiento.
-      </article>
+      <div class="container-fluid text-center">
+        <div class="row">
+          <div class="col">
+            Un colegio para la educación integral de los alumnos,
+            con instalaciones amplias y seguras,
+            ideales para motivar a la concentración y crecimiento.
+          </div>
+        </div>
+      </div>
     </section>
-  </div>
+  </main>
   <?php
   // elementos comunes del cuerpo 
   include('footer.php');
@@ -37,6 +47,7 @@ include_once('usuario/usuario-firmado.php');
   $version = phpversion();
   print 'PHP version: ' . $version;
   ?>
+  </div>
 </body>
 
 </html>

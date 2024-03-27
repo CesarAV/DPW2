@@ -10,7 +10,7 @@ include_once("../usuario/usuario-firmado.php");
     <title>lista de pagos</title>
     <?php
     // elementos comunes del cuerpo 
-    include('../head-interno.html');
+    include('../comun/head-interno.html');
     include('pago.php');
 
     $pago = new Pago();
@@ -27,7 +27,7 @@ include_once("../usuario/usuario-firmado.php");
     include('../menu.php');
     ?>
     <section>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <h2>Listado de <b>pagos</b></h2>

@@ -15,7 +15,7 @@ if(!isset($usuarioFirmado) || !$usuarioFirmado->puedeEditarPago()) {
     <title>Actualizar pago</title>
     <?php
     // elementos comunes del cuerpo 
-    include('../head-interno.html');
+    include('../comun/head-interno.html');
     ?>
 </head>
 

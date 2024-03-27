@@ -50,9 +50,8 @@ include('pago.php');
     // elementos comunes del cuerpo 
     include('../menu.php');
     ?>
-    <div id="contenido">
-        <section">
-            <span class="centrado">
+    <div id="contenido" class="container">
+            <div class="row centrado">
                 <div>
                     <h2>Consultar pagos</h2>
                 </div>
@@ -85,7 +84,7 @@ include('pago.php');
                 if (count($listado) > 0) {
                     ?>
                     <div><b>Pagos realizados</b></div>
-                    <div>
+                    <div class="table-responsive-md">
                         <?php include("tabla-pagos.php") ?>
                     </div>
                     <?php
@@ -96,7 +95,6 @@ include('pago.php');
                 }
                 ?>
     </div>
-    </section>
     </div>
     <?php
     // elementos comunes del cuerpo 

@@ -39,3 +39,12 @@ function selectOption(select, val) {
         return idx;
     }
 }
+
+function initBSTooltips() {
+    window.addEventListener('load', () => {
+        // https://getbootstrap.com/docs/5.3/components/tooltips/
+        console.log('Inicializar tooltips');
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    });
+}

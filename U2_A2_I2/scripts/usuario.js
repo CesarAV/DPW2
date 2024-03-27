@@ -22,8 +22,6 @@ function mostrarAyuda(campo) {
 }
 
 function validarUsuario() {
-    return true;
-
     try {
         // Nombre debe ser texto
         let ctrlNombre = document.getElementById('nombre');
@@ -36,7 +34,7 @@ function validarUsuario() {
         let pwd = document.getElementById('password');
         let confirmPwd = document.getElementById('confirmpassword');
         if (!pwd.value || pwd.value != confirmPwd.value) {
-            mostrarMensaje("Los passwords no coinciden", 'validarPwd');
+            mostrarMensaje("Las contraseñas no coinciden", 'validarPwd');
             return false;
         }
 

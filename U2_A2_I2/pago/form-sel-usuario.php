@@ -7,7 +7,7 @@
 
 <form method="post" action="consultar.php">
     <label>Seleccione un usuario, por favor:</label>
-    <select name="usuarioSeleccionado" title="Seleccionar usuario">
+    <select name="usuarioSeleccionado" title="Seleccionar usuario" class="form-control">
         <?php 
             $idSelUsr = $usuario->id;
             include('../usuario/option-usuario.php');

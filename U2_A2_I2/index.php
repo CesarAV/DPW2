@@ -21,6 +21,12 @@ include_once('usuario/usuario-firmado.php');
   ?>
   <main role="main" class="container" id="contenido">
     <?php
+    if (isset($_GET['mensaje'])) {
+      $message = $_GET['mensaje'];
+      $class = $_GET['class'];
+      include("mensaje.php");
+      $message = $class = '';
+    }
     include('comun/bienvenido.php');
     include('header.php');
     ?>

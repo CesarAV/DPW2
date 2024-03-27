@@ -8,6 +8,7 @@ if ($usuarioFirmado) {
     
     // Página válida solo para usuarios registrados
     //header("location: " . $uri);
+    // exit
 ?>
     <script>
         window.location.href="<?=$uri?>";

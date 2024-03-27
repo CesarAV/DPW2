@@ -1,8 +1,12 @@
 <?php
 $colAlign = "col-lg-4 col-md-6 col-sm-12";
+
+if(!isset($action)) {
+    $action = '';
+}
 ?>
 
-<form method="post" onsubmit="return validarUsuario();">
+<form id="frm-usuario" method="post" onsubmit="return validarUsuario();" <?=$action?>>
     <div class="container">
         <div class="row">
             <div class="<?= $colAlign ?>">

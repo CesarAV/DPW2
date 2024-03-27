@@ -1,3 +1,7 @@
+<?php
+include("../comun/session-handler.php");
+include_once("usuario-firmado.php");
+?>
 <!DOCTYPE html>
 <html lang="es-MX">
 
@@ -6,7 +10,6 @@
     <?php
     // elementos comunes del cuerpo 
     include('../comun/head-interno.html');
-    include('usuario.php');
 
     $usuario = new Usuario();
     $listado = $usuario->leerUsuarios();
@@ -39,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered table-responsive">
+            <table class="table table-bordered table-responsive table-striped">
                 <thead>
                     <tr>
                         <th rowspan="2">Identificador</th>

@@ -17,8 +17,11 @@
           <?php
           if (!isset($usuarioFirmado)) {
           ?>
-            <li class="nav-item">
+            <!--li class="nav-item">
               <a class="nav-link active" title="Registro" href="/usuario/registrar.php">Registrarse</a>
+            </li-->
+            <li class="nav-item">
+              <a class="nav-link active" title="Registro seguro" href="/usuario/registrar-captcha.php">Registrarse</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" title="Inicio de sesion" href="/usuario/iniciar-sesion.php">Iniciar sesi&oacute;n</a>
